@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wunschzettel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      padding: 10px 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #f0f0f0;
+    }
+
+    .tab.active {
+      background: #0099ff;
+      color: white;
+    }
+
+    .wishlist {
+      display: none;
+    }
+
+    .wishlist.active {
+      display: block;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    a {
+      color: #0077cc;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Wunschzettel</h1>
+
+  <div class="tabs">
+    <div class="tab active" onclick="showList('fabi')">Fabi</div>
+    <div class="tab" onclick="showList('alica')">Alica</div>
+    <div class="tab" onclick="showList('lumara')">Lumara</div>
+  </div>
+
+  <div id="fabi" class="wishlist active">
+    <h2>Fabis Wunschliste</h2>
+    <ul>
+      <li><a href="https://example.com">Beispiel Geschenk 1</a></li>
+      <li><a href="https://example.com">Beispiel Geschenk 2</a></li>
+    </ul>
+  </div>
+
+  <div id="alica" class="wishlist">
+    <h2>Alicas Wunschliste</h2>
+    <ul>
+      <li><a href="https://example.com">Beispiel Geschenk A</a></li>
+      <li><a href="https://example.com">Beispiel Geschenk B</a></li>
+    </ul>
+  </div>
+
+  <div id="lumara" class="wishlist">
+    <h2>Lumaras Wunschliste</h2>
+    <ul>
+      <li><a href="https://example.com">Beispiel Geschenk L1</a></li>
+      <li><a href="https://example.com">Beispiel Geschenk L2</a></li>
+    </ul>
+  </div>
+
+  <script>
+    function showList(name) {
+      // Tabs umschalten
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      event.target.classList.add('active');
+
+      // Listen umschalten
+      document.querySelectorAll('.wishlist').forEach(list => list.classList.remove('active'));
+      document.getElementById(name).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
